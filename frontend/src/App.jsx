@@ -12,14 +12,13 @@ const AGENTS = [
 ];
 
 const KNOWLEDGE_BASE = [
-  "GSD (Get Shit Done) é uma metodologia de execução atômica onde o Orquestrador delega tarefas para Workers efêmeros com memória isolada.",
-  "Context Rot é a degradação de contexto em longas sessões com LLMs, causando alucinações e perda de escopo.",
-  "A Pós-Graduação em Engenharia de IA Aplicada cover: Fundamentos de IA, LLMs, Prompt Engineering, MCP, Agentes Autônomos, RAG, MLOps e Arquitetura Multi-Agents.",
-  "LangGraph permite criar arquiteturas multiagentes com estados que fluem entre nós.",
-  "MCP (Model Context Protocol) é um padrão para conectar LLMs a ferramentas externas como filesystem, GitHub, etc.",
-  "RAG (Retrieval-Augmented Generation) combina busca vetorial com geração de texto.",
-  "ChromaDB é um vector store open-source para RAG.",
-  "DevFactory é um framework de orquestração multi-agente que previne Context Rot."
+  "GSD é uma metodologia de execução atômica onde o Orquestrador delega tarefas para Workers.",
+  "Context Rot é a degradação de contexto em longas sessões com LLMs.",
+  "LangGraph permite criar arquiteturas multiagentes.",
+  "MCP é um padrão para conectar LLMs a ferramentas externas.",
+  "RAG combina busca vetorial com geração de texto.",
+  "ChromaDB é um vector store para RAG.",
+  "Multi-Agents permite múltiplos agentes cooperando."
 ];
 
 const generateResponse = (message) => {
@@ -42,11 +41,11 @@ const generateResponse = (message) => {
   } else if (lower.includes("langgraph") || lower.includes("multi")) {
     response = "**Multi-Agents com LangGraph** permite criar sistemas onde múltiplos LLMs cooperam:\n\n- Supervisor → coordena\n- Researcher → busca infos\n- Executor → executa ações\n- Reviewer → valida\n\nO estado flui entre nós como um grafo!";
     agent = "supervisor";
-  } else if (lower.includes("pós") || lower.includes("engenharia ia")) {
-    response = "A **Pós-Graduação em Engenharia de IA Aplicada** (UNIPDS/Anhanguera) cover:\n\n1. Fundamentos de IA e LLMs\n2. APIs e Prompt Engineering\n3. **MCP** - Model Context Protocol\n4. **Criação de Agentes Autônomos**\n5. Ferramentas de IA para DevOps\n6. **RAG** e Vector Databases\n7. **MLOps / LLMOps**\n8. Arquitetura Multi-Agents\n9. Fine-tuning\n10. Segurança e Governança\n\nO projeto demonstra todos esses conceitos!";
+  } else if (lower.includes("pós") || lower.includes("engenharia")) {
+    response = "A área de **Engenharia de IA Aplicada** cover:\n\n1. Fundamentos de IA e LLMs\n2. APIs e Prompt Engineering\n3. MCP - Model Context Protocol\n4. Criação de Agentes Autônomos\n5. Ferramentas de IA para DevOps\n6. RAG e Vector Databases\n7. MLOps / LLMOps\n8. Arquitetura Multi-Agents\n9. Fine-tuning\n10. Segurança e Governança\n\nO projeto demonstra todos esses conceitos!";
     agent = "researcher";
   } else if (lower.includes("Olá") || lower.includes("oi") || lower.includes("hello")) {
-    response = "🤖 **AI Agent Factory** está no ar!\n\nDemonstro as principais tecnologias da Pós-Graduação em Engenharia de IA Aplicada:\n\n- **Multi-Agents** -Supervisor → Pesquisa → Execução → Revisão\n- **MCP** - Ferramentas de sistema\n- **RAG** - Busca vetorial\n- **LangGraph** - Workflow de agentes\n\nPergunte sobre GSD, Context Rot, MCP, RAG, LangGraph ou a pósgraduação!";
+    response = "🤖 **AI Agent Factory** está no ar!\n\nEste chatbot demonstra tecnologias modernas:\n\n- **Multi-Agents** - Supervisão → Pesquisa → Execução → Revisão\n- **MCP** - Ferramentas externas\n- **RAG** - Busca vetorial\n- **LangGraph** - Workflow de agentes\n\nPergunte sobre Multi-Agents, MCP, RAG ou LangGraph!";
     agent = "supervisor";
   } else {
     const relevant = KNOWLEDGE_BASE.filter(k => 
@@ -57,7 +56,7 @@ const generateResponse = (message) => {
     if (relevant.length > 0) {
       response = relevant[0];
     } else {
-      response = `Interessante! Você perguntou sobre "${message}".\n\nBaseado na **Pós-Graduação em Engenharia de IA Aplicada**, posso explicar:\n\n- **GSD** - Metodologia de execução\n- **Context Rot** - Problema que resolvemos\n- **MCP** - Conexão com ferramentas\n- **RAG** - Busca vetorial\n- **LangGraph** - Multi-agentes\n\nQual tema te interessa mais?`;
+      response = `Interessante! Você perguntou sobre "${message}".\n\nPosso explicar sobre:\n\n- **Multi-Agents** - Arquitetura com múltiplos agentes\n- **MCP** - Conexão com ferramentas externas\n- **RAG** - Busca vetorial\n- **LangGraph** - Workflow de agentes\n\nQual tema te interessa mais?`;
     }
     agent = "researcher";
   }
@@ -69,7 +68,7 @@ export default function App() {
   const [messages, setMessages] = useState([
     { 
       role: 'assistant', 
-      content: '🤖 **AI Agent Factory** está no ar!\n\nEste demo funciona **100% no navegador** - sem API externa necessária!\n\nDemonstro as principais tecnologias da Pós-Graduação em Engenharia de IA Aplicada:\n\n- **Multi-Agents** - Supervisão → Pesquisa → Execução → Revisão\n- **MCP** - Ferramentas de sistema de arquivos\n- **RAG** - Busca em base de conhecimento vetorial\n\nPergunte sobre GSD, Context Rot, MCP, RAG ou a pósgraduação!', 
+      content: '🤖 **AI Agent Factory** está online!\n\nChatbot com arquitetura Multi-Agents:\n\n- **Multi-Agents** - Supervisão → Pesquisa → Execução → Revisão\n- **MCP** - Ferramentas externas\n- **RAG** - Busca em base de conhecimento\n- **LangGraph** - Workflow de agentes\n\nPergunte sobre Multi-Agents, MCP, RAG ou LangGraph!', 
       timestamp: Date.now() 
     }
   ]);
@@ -135,7 +134,7 @@ export default function App() {
               <h1 className="text-xl font-bold bg-gradient-to-r from-primary-400 to-purple-400 bg-clip-text text-transparent">
                 AI Agent Factory
               </h1>
-              <p className="text-xs text-slate-500">Multi-Agents + MCP + RAG Demo</p>
+              <p className="text-xs text-slate-500">Multi-Agents Demo</p>
             </div>
           </div>
           
@@ -239,7 +238,7 @@ export default function App() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyPress}
-                placeholder="Pergunte sobre GSD, Context Rot, MCP, RAG..."
+                placeholder="Pergunte sobre Multi-Agents, MCP, RAG..."
                 className="w-full bg-transparent text-slate-100 placeholder-slate-500 px-3 py-2 text-sm resize-none outline-none max-h-32"
                 rows={1}
                 disabled={loading}
