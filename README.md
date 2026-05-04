@@ -1,13 +1,8 @@
 # AI Agent Factory
 
-*Multi-Agents + MCP + RAG Demo para Pós-Graduação em Engenharia de IA Aplicada*
+*Multi-Agents Demo com tecnologias modernas*
 
-[![PT-BR](https://img.shields.io/badge/lang-pt--BR-green.svg)](README.md)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Components-blue.svg)](frontend/src)
-[![Python](https://img.shields.io/badge/Python-Backend-blue.svg)](backend)
-
-> Demonstrção impressionante das principais tecnologias da Pós-Graduação em Engenharia de IA Aplicada: Multi-Agents, MCP, RAG, LangGraph e MLOps.
+> Chatbot com arquitetura Multi-Agents demonstrando tecnologias modernas de IA.
 
 ## 🚀 Demonstração Online
 
@@ -187,4 +182,17 @@ MIT License - Veja [LICENSE](LICENSE) para detalhes.
 
 ---
 
-*Demonstração criada para a Pós-Graduação em Engenharia de IA Aplicada - Code Showcase 2026*
+*Chatbot com Multi-Agents*
+
+---
+
+## 📬 Contato
+
+- **Autor:** Seu Nome
+- **GitHub:** github.com/seu-usuario
+
+---
+
+## 📄 Licença
+
+MIT License - Veja [LICENSE](LICENSE) para detalhes.
