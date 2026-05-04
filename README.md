@@ -118,6 +118,10 @@ TEMPERATURE=0.7
 
 ---
 
-## 📄 License
+## Optional Configuration
 
-MIT License
+To use the full backend with LLM:
+
+```env
+OPENAI_API_KEY=sk-your-key-here
+```
