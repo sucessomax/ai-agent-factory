@@ -1,85 +1,38 @@
 # AI Agent Factory
 
-*Multi-Agents Demo com tecnologias modernas*
+*Chatbot with Multi-Agents architecture*
 
-> Chatbot com arquitetura Multi-Agents demonstrando tecnologias modernas de IA.
+> Chatbot demonstrating Multi-Agents, MCP, RAG and LangGraph technologies.
 
-## 🚀 Demonstração Online
+## 🚀 Quick Start
 
-### Versão que roda no navegador (sem API)
-
-**Deploy instantâneo - basta fazer push para GitHub:**
-
-```bash
-# Clone e deploy para Vercel
-git clone https://github.com/SEU-USUARIO/ai-agent-factory.git
-cd ai-agent-factory/frontend
-vercel --prod
-```
-
-**URL online:** `https://ai-agent-factory-frontend.vercel.app`
-
-### Versão Completa (Backend + Frontend)
-
-**Deploy com Render/Railway:**
-
-```bash
-# O Backend faz deploy automático no Render
-# https://ai-agent-factory-backend.onrender.com
-```
-
----
-
-## 📚 Tecnologias Demonstradas
-
-| Módulo | Tecnologia | Descrição |
-|--------|------------|-----------|
-| **Multi-Agents** | LangGraph | Supervisor → Researcher → Executor → Reviewer |
-| **MCP** | Model Context Protocol | Ferramentas de sistema de arquivos |
-| **RAG** | ChromaDB + Embeddings | Busca vetorial semântica |
-| **LLMOps** | FastAPI + Streaming | API com respostas em tempo real |
-
-**Disciplinas da Pós:**
-
-- Fundamentos de IA e LLMs
-- Prompt Engineering
-- **MCP - Model Context Protocol** ✅
-- **Criação de Agentes Autônomos** ✅
-- Ferramentas de IA para DevOps
-- **RAG e Vector Databases** ✅
-- **MLOps** ✅
-- **Arquitetura Multi-Agents** ✅
-
----
-
-## 🎯 Como Executar
-
-### 1. Versão Browser (Apenas Frontend)
+### Browser Version (Works instantly)
 
 ```bash
 cd frontend
 npm install
 npm run dev
-# Acesse: http://localhost:5173
 ```
 
-### 2. Versão Completa (Backend + Frontend)
+Then open http://localhost:5173
+
+### Full Version (Backend + Frontend)
 
 ```bash
 # Backend
 cd backend
 pip install -r requirements.txt
 cp .env.example .env
-# Adicione OPENAI_API_KEY no .env
+# Add OPENAI_API_KEY to .env
 python main.py
 
-# Frontend (outro terminal)
+# Frontend (another terminal)
 cd frontend
 npm install
 npm run dev
 ```
 
-### 3. Docker
+### Docker
 
 ```bash
 docker-compose up --build
@@ -87,78 +40,75 @@ docker-compose up --build
 
 ---
 
-## 📁 Estrutura
+## 📚 Technologies
 
-```
-ai-agent-factory/
-├── backend/                  # FastAPI + LangChain
-│   ├── main.py            # API endpoints
-│   ├── agents/          # Agentes LangChain
-│   ├── graph/           # LangGraph workflow
-│   ├── rag/            # ChromaDB vectorstore
-│   └── mcp/            # MCP tools
-├── frontend/            # React + Tailwind
-│   ├── src/
-│   │   └── App.jsx     # Chat UI
-│   ├── vite.config.js
-│   └── tailwind.config.js
-├── docker-compose.yml
-└── README.md
-```
+| Technology | Description |
+|------------|-------------|
+| **LangGraph** | Multi-Agents workflow |
+| **MCP** | Model Context Protocol |
+| **RAG** | Vector search with ChromaDB |
+| **FastAPI** | Python API |
+| **React + Tailwind** | Modern UI |
 
 ---
 
-## 🔌 Endpoints API
-
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| GET | `/` | Info da API |
-| GET | `/health` | Health check |
-| POST | `/api/chat` | Chat simples |
-| POST | `/api/chat/stream` | Chat com streaming |
-| GET | `/api/rag/search?q=...` | Busca RAG |
-| GET | `/api/mcp/tools` | Lista tools MCP |
-
----
-
-## 🏗️ Arquitetura Multi-Agents
+## 🏗️ Architecture
 
 ```
 User Input
     │
     ▼
 ┌─────────────┐
-│  Supervisor │ ← Decide próximo agente
+│  Supervisor │ ← Decision maker
 └─────────────┘
     │
-    ├──→ Researcher ← Busca na base RAG
+    ├──→ Researcher ← Search knowledge
     │       │
     │       ▼
-    │   Reviewer ← Valida qualidade
+    │   Reviewer ← Validate
     │
-    └──→ Executor ← Executa tools (MCP)
+    └──→ Executor ← Execute tools
             │
             ▼
-        Reviewer ← Valida output
+        Reviewer ← Validate output
 ```
 
 ---
 
-## 📝 Perguntas para Demo
+## 📁 Structure
 
-Teste com essas perguntas para impressionar:
-
-- "O que é Context Rot?"
-- "Como funciona o padrão GSD?"
-- "O que é MCP?"
-- "Explain RAG"
-- "Quais tecnologias da pósgraduação estão sendo usadas?"
+```
+ai-agent-factory/
+├── backend/
+│   ├── main.py            # FastAPI endpoints
+│   ├── agents/           # LangChain agents
+│   ├── graph/           # LangGraph workflow
+│   ├── rag/            # ChromaDB vectorstore
+│   └── mcp/            # MCP tools
+├── frontend/            # React + Tailwind
+│   ├── src/
+│   │   └── App.jsx     # Chat UI
+│   └── vite.config.js
+├── docker-compose.yml
+└── README.md
+```
 
 ---
 
-## 🔧 Configuração
+## 📡 API Endpoints
 
-### Variáveis de Ambiente (.env)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/` | API info |
+| GET | `/health` | Health check |
+| POST | `/api/chat` | Chat message |
+| POST | `/api/chat/stream` | Streaming chat |
+| GET | `/api/rag/search` | RAG search |
+| GET | `/api/mcp/tools` | List MCP tools |
+
+---
+
+## 🔧 Configuration
 
 ```env
 OPENAI_API_KEY=sk-...
@@ -168,31 +118,6 @@ TEMPERATURE=0.7
 
 ---
 
-## 📬 Contato
+## 📄 License
 
-- **Autor:** Seu Nome
-- **Course:** Pós-Graduação em Engenharia de IA Aplicada (UNIPDS)
-- **GitHub:** github.com/seu-usuario
-
----
-
-## 📄 Licença
-
-MIT License - Veja [LICENSE](LICENSE) para detalhes.
-
----
-
-*Chatbot com Multi-Agents*
-
----
-
-## 📬 Contato
-
-- **Autor:** Seu Nome
-- **GitHub:** github.com/seu-usuario
-
----
-
-## 📄 Licença
-
-MIT License - Veja [LICENSE](LICENSE) para detalhes.
+MIT License
